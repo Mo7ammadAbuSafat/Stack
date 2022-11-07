@@ -41,5 +41,22 @@ public class MyStack<T>
         size--;
         return val;
     }
+    public void Print()
+    {
+        if (size == 0)
+            Console.WriteLine("the stack is empty");
+        else
+        {
+            Entity current = top;
+            string s = "{ ";
+            while (current != null)
+            {
+                s += (current.val + ", ");
+                current = current.next;
+            }
+            Console.WriteLine(s + "}");
+        }
+
+    }
 
 }
