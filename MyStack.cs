@@ -14,4 +14,13 @@ public class MyStack<T>
         }
 
     }
+    private Entity top;
+    private int size;
+
+    public void Push(T val)
+    {
+        top = new Entity(top, val);
+        size++;
+    }
+
 }
