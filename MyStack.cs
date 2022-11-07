@@ -1,7 +1,17 @@
-﻿namespace Stack
+﻿namespace Stack;
+
+public class MyStack<T>
 {
-    public class MyStack
+    class Entity
     {
+        public Entity next;
+        public T val;
+
+        public Entity(Entity e, T val)
+        {
+            this.next = e;
+            this.val = val;
+        }
 
     }
 }
