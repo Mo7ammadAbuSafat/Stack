@@ -30,6 +30,16 @@ public class MyStack<T>
         }
         Console.WriteLine(top.val);
     }
-
+    public T Pop()
+    {
+        if (size == 0)
+        {
+            throw new ArgumentOutOfRangeException("the stack is empty");
+        }
+        T val = top.val;
+        top = top.next;
+        size--;
+        return val;
+    }
 
 }
