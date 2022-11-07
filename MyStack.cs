@@ -1,25 +1,27 @@
-﻿namespace Stack;
+﻿using System.Text;
 
-public class MyStack<T>
+namespace Stack;
+
+public class Stack<T>
 {
-    class Entity
+    class Node
     {
-        public Entity next;
+        public Node next;
         public T val;
 
-        public Entity(Entity e, T val)
+        public Node(Node e, T val)
         {
             this.next = e;
             this.val = val;
         }
 
     }
-    private Entity top;
+    private Node top;
     private int size;
 
     public void Push(T val)
     {
-        top = new Entity(top, val);
+        top = new Node(top, val);
         size++;
     }
     public void Peek()
@@ -47,14 +49,16 @@ public class MyStack<T>
             Console.WriteLine("the stack is empty");
         else
         {
-            Entity current = top;
-            string s = "{ ";
+            Node current = top;
+            StringBuilder sb = new("{ ");
             while (current != null)
             {
-                s += (current.val + ", ");
+                sb.Append(current.val);
+                sb.Append(", ");
                 current = current.next;
             }
-            Console.WriteLine(s + "}");
+            sb.Append('}');
+            Console.WriteLine(sb);
         }
 
     }
