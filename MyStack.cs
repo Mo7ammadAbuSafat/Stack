@@ -22,5 +22,14 @@ public class MyStack<T>
         top = new Entity(top, val);
         size++;
     }
+    public void Peek()
+    {
+        if (size == 0)
+        {
+            throw new ArgumentOutOfRangeException("stack is empty");
+        }
+        Console.WriteLine(top.val);
+    }
+
 
 }
