@@ -1,4 +1,6 @@
-﻿namespace Stack;
+﻿using System.Text;
+
+namespace Stack;
 
 public class Stack<T>
 {
@@ -48,13 +50,15 @@ public class Stack<T>
         else
         {
             Node current = top;
-            string s = "{ ";
+            StringBuilder sb = new("{ ");
             while (current != null)
             {
-                s += (current.val + ", ");
+                sb.Append(current.val);
+                sb.Append(", ");
                 current = current.next;
             }
-            Console.WriteLine(s + "}");
+            sb.Append('}');
+            Console.WriteLine(sb);
         }
 
     }
