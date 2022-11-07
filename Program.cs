@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            MyStack<int> stack = new();
+            Stack<int> stack = new();
             stack.Push(1);
             stack.Push(2);
             stack.Push(3);
