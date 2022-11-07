@@ -58,5 +58,10 @@ public class MyStack<T>
         }
 
     }
+    public void Clear()
+    {
+        top = null;
+        size = 0;
+    }
 
 }
