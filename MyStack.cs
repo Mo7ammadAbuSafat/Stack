@@ -28,7 +28,7 @@ public class Stack<T>
     {
         if (size == 0)
         {
-            throw new ArgumentOutOfRangeException("stack is empty");
+            throw (new StackEmptyException("the stack is empty"));
         }
         Console.WriteLine(top.val);
     }
@@ -36,7 +36,7 @@ public class Stack<T>
     {
         if (size == 0)
         {
-            throw new ArgumentOutOfRangeException("the stack is empty");
+            throw (new StackEmptyException("the stack is empty"));
         }
         T val = top.val;
         top = top.next;
@@ -45,27 +45,30 @@ public class Stack<T>
     }
     public void Print()
     {
-        if (size == 0)
-            Console.WriteLine("the stack is empty");
-        else
+        Node current = top;
+        StringBuilder sb = new("{");
+        while (current != null)
         {
-            Node current = top;
-            StringBuilder sb = new("{ ");
-            while (current != null)
-            {
-                sb.Append(current.val);
-                sb.Append(", ");
-                current = current.next;
-            }
-            sb.Append('}');
-            Console.WriteLine(sb);
+            sb.Append(current.val);
+            sb.Append(", ");
+            current = current.next;
         }
-
+        sb.Append('}');
+        Console.WriteLine(sb);
     }
+
     public void Clear()
     {
         top = null;
         size = 0;
+    }
+
+    public class StackEmptyException : Exception
+    {
+        public StackEmptyException(string massege):base(massege)
+        {
+        }
+
     }
 
 }

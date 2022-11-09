@@ -1,4 +1,6 @@
-﻿namespace Stack
+﻿using static Stack.Stack<int>;
+
+namespace Stack
 {
     public class Program
     {
@@ -7,17 +9,43 @@
             Stack<int> stack = new();
             stack.Push(1);
             stack.Push(2);
-            stack.Push(3);
-            stack.Push(4);
-            stack.Push(5);
-            stack.Pop();
-            stack.Peek();
-            stack.Print();
-            stack.Clear();
-            stack.Print();
-            
-        }
+            try
+            {
+                Console.WriteLine(stack.Pop());
+            }
+            catch(StackEmptyException e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
+
+            try
+            {
+                Console.WriteLine(stack.Pop());
+            }
+            catch (StackEmptyException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+                stack.Print();
+            }
+            catch (StackEmptyException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+                Console.WriteLine(stack.Pop());
+            }
+            catch (StackEmptyException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
 
