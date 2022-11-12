@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Exception;
+using System.Text;
 
 namespace Stack;
 
@@ -28,7 +29,7 @@ public class Stack<T>
     {
         if (size == 0)
         {
-            throw (new StackEmptyException("the stack is empty"));
+            throw (new StackEmptyException());
         }
         Console.WriteLine(top.val);
     }
@@ -36,7 +37,7 @@ public class Stack<T>
     {
         if (size == 0)
         {
-            throw (new StackEmptyException("the stack is empty"));
+            throw (new StackEmptyException());
         }
         T val = top.val;
         top = top.next;
@@ -63,12 +64,6 @@ public class Stack<T>
         size = 0;
     }
 
-    public class StackEmptyException : Exception
-    {
-        public StackEmptyException(string massege):base(massege)
-        {
-        }
-
-    }
+    
 
 }
