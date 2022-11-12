@@ -1,5 +1,4 @@
-﻿using static Stack.Stack<int>;
-
+﻿using Exception;
 namespace Stack
 {
     public class Program
